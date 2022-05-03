@@ -1,0 +1,9 @@
+jupyterhub==2.2.2
+jupyterlab==3.3.4
+matplotlib==3.5.1
+notebook==6.4.11
+numpy==1.22.3
+pandas==1.4.2
+scipy==1.8.0
+scikit-learn==1.0.2
+seaborn==0.11.2
