@@ -28,7 +28,11 @@ apt install -y --no-install-recommends \
   libcairo2-dev \
   python3-dev \
   python3-pip \
-  pkg-config
+  pkg-config \
+  libjpeg-turbo8-dev \
+  libblas-dev \
+  liblapack-dev \
+  gfortran
 
 ################# Install jupyterlab + hub ###################################
 cd /opt/JupyteRStudioHub
