@@ -19,14 +19,22 @@ provider "google" {
   zone        = var.zone
 }
 
+resource "google_compute_subnetwork" "jupyterstudio_subnetwork" {
+  name          = "jupyterstudio-subnetwork-${random_id.instance_name_suffix.hex}"
+  ip_cidr_range = "192.168.255.0/24"
+  region        = var.region
+  network       = google_compute_network.jupyterstudio_network.id
+}
+
 
 resource "google_compute_network" "jupyterstudio_network" {
-    name           = "jupyterstudio-network"    
+    name           = "jupyterstudio-network-${random_id.instance_name_suffix.hex}"
+    auto_create_subnetworks = false
 }
 
 # Allow http/s and ssh into that machine
 resource "google_compute_firewall" "jupyterstudio_firewll" {
-  name    = "jupyter-firewall"
+  name    = "jupyter-firewall-${random_id.instance_name_suffix.hex}"
   network = google_compute_network.jupyterstudio_network.name
 
   allow {
@@ -71,7 +79,7 @@ resource "google_compute_instance" "jupyterstudio" {
   }
 
   network_interface {
-    network = google_compute_network.jupyterstudio_network.name
+    subnetwork = google_compute_subnetwork.jupyterstudio_subnetwork.name
     access_config {
       // creates a public IP
     }

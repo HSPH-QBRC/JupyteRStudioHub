@@ -22,7 +22,7 @@ variable "jupyterstudio_machine_config" {
 }
 
 variable "jupyterstudio_os_image" {
-    default = "ubuntu-2110-impish-v20220309"
+    default = "ubuntu-2204-jammy-v20220712a"
 }
 
 variable "domain"{

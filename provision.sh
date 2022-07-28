@@ -92,8 +92,8 @@ apt-get install -y --no-install-recommends r-base
 
 # Install rstudio
 apt-get install gdebi-core
-wget https://download2.rstudio.org/server/bionic/amd64/rstudio-server-2022.02.2-485-amd64.deb
-gdebi -n rstudio-server-2022.02.2-485-amd64.deb
+wget https://s3.amazonaws.com/rstudio-ide-build/server/jammy/amd64/rstudio-server-2022.11.0-daily-80-amd64.deb
+gdebi -n rstudio-server-2022.11.0-daily-80-amd64.deb
 
 # Install the R kernel for jupyterlab:
 /usr/bin/R -e 'install.packages(c("IRkernel")); IRkernel::installspec(user = FALSE)'
