@@ -34,7 +34,8 @@ apt install -y --no-install-recommends \
   liblapack-dev \
   gfortran \
   libxml2-dev \
-  libcurl4-openssl-dev
+  libcurl4-openssl-dev \
+  cmake
 
 ################# Install jupyterlab + hub ###################################
 cd /opt/JupyteRStudioHub
