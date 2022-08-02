@@ -32,7 +32,9 @@ apt install -y --no-install-recommends \
   libjpeg-turbo8-dev \
   libblas-dev \
   liblapack-dev \
-  gfortran
+  gfortran \
+  libxml2-dev \
+  libcurl4-openssl-dev
 
 ################# Install jupyterlab + hub ###################################
 cd /opt/JupyteRStudioHub
