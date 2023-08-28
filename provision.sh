@@ -35,7 +35,17 @@ apt install -y --no-install-recommends \
   gfortran \
   libxml2-dev \
   libcurl4-openssl-dev \
-  cmake
+  cmake \
+  libbz2-dev \
+  liblzma-dev \
+  libharfbuzz-dev \
+  libfribidi-dev \
+  libfreetype6-dev \
+  libpng-dev \
+  libtiff5-dev \
+  libjpeg-dev \
+  libfftw3-dev \
+  texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra
 
 ################# Install jupyterlab + hub ###################################
 cd /opt/JupyteRStudioHub
@@ -43,7 +53,7 @@ pip3 install -U pip
 pip3 install --no-cache-dir -r ./requirements.txt
 
 # The following allows dynamic 3-d plotting
-curl -sL https://deb.nodesource.com/setup_16.x | /usr/bin/bash -
+curl -sL https://deb.nodesource.com/setup_18.x | /usr/bin/bash -
 apt-get install -y nodejs
 jupyter labextension install @jupyter-widgets/jupyterlab-manager jupyter-matplotlib
 
@@ -95,8 +105,9 @@ apt-get install -y --no-install-recommends r-base
 
 # Install rstudio
 apt-get install gdebi-core
-wget https://s3.amazonaws.com/rstudio-ide-build/server/jammy/amd64/rstudio-server-2022.11.0-daily-80-amd64.deb
-gdebi -n rstudio-server-2022.11.0-daily-80-amd64.deb
+cd /opt
+wget https://download2.rstudio.org/server/jammy/amd64/rstudio-server-2023.06.1-524-amd64.deb
+gdebi -n rstudio-server-2023.06.1-524-amd64.deb
 
 # Install the R kernel for jupyterlab:
 /usr/bin/R -e 'install.packages(c("IRkernel")); IRkernel::installspec(user = FALSE)'
